@@ -20,7 +20,11 @@ module.exports = function SkillResets(mod) {
 		lastSkill = skill.id;
 		if(config.skill.indexOf(skill.id) != -1) {			
 			setTimeout( () => {
-				showMessage(`<img src="img://skill__0__${mod.game.me.templateId}__${skill.id}" width="48" height="48" vspace="-20"/><font size="24" color="${config.resetfontcolor}">&nbsp;Reset</font>`)
+				if(config.padding == 0) {
+					showMessage(`<img src="img://skill__0__${mod.game.me.templateId}__${skill.id}" width="48" height="48" vspace="${config.vspace}"/><font size="${config.fontsize}" color="${config.resetfontcolor}">&nbsp;Reset</font>`)
+				} else {
+					showMessage(`<img src="img://skill__0__${mod.game.me.templateId}__${skill.id}" height="${config.padding}" width="1" /><img src="img://skill__0__${mod.game.me.templateId}__${skill.id}" width="48" height="48" vspace="${config.vspace}" /><font size="${config.fontsize}" color="${config.resetfontcolor}">&nbsp;Reset</font>`)
+				}
 				
 			}, cooldown);
 		}
@@ -29,8 +33,11 @@ module.exports = function SkillResets(mod) {
     mod.hook('S_CREST_MESSAGE', 2, ({type, skill}) => {
         if (type === 6) {
 			if(config.skill.indexOf(skill.id) != -1) {			
-				console.log(`SkillReset(${mod.game.me.name})|${skill}`);
-				showMessage(`<img src="img://skill__0__${mod.game.me.templateId}__${skill}" width="48" height="48" vspace="-20"/><font size="24" color="${config.resetfontcolor}">&nbsp;Reset</font>`)
+				if(config.padding == 0) {					
+					showMessage(`<img src="img://skill__0__${mod.game.me.templateId}__${skill}" width="48" height="48" vspace="${config.vspace}"/><font size="${config.fontsize}" color="${config.resetfontcolor}">&nbsp;Reset</font>`)
+				} else {
+					showMessage(`<img src="img://skill__0__${mod.game.me.templateId}__${skill}" height="${config.padding}" width="1" /><img src="img://skill__0__${mod.game.me.templateId}__${skill}" width="48" height="48" vspace="${config.vspace}" /><font size="${config.fontsize}" color="${config.resetfontcolor}">&nbsp;Reset</font>`)
+				}
 				if (!config.showsystemresetmessage) return false			
 			}
         }
@@ -46,12 +53,13 @@ module.exports = function SkillResets(mod) {
 	  }
 	
 	//Gestion des commandes
-	mod.command.add('skreset', (key, arg, arg2) => {
+	mod.command.add('skreset', (key, arg, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11) => {
 		switch (key) {
 			case 'add':			
 				if(lastSkill != 0) {
 					if(config.skill.indexOf(lastSkill) == -1) {
 						config.skill.push(lastSkill)
+						mod.command.message('Skill '+lastSkill+' Ajouté');
 					}
 				} else {
 					mod.command.message('Lancer un skill avant de faire la commande');
@@ -62,6 +70,7 @@ module.exports = function SkillResets(mod) {
 					var index = config.skill.indexOf(lastSkill);	
 					if (index != -1) {
 						config.skill.splice(index, 1);
+						mod.command.message('Skill '+lastSkill+' Supprimé');
 					} else {
 						mod.command.message('Pas dans la liste');
 					}						
@@ -71,6 +80,7 @@ module.exports = function SkillResets(mod) {
 				break;				
 			case 'reset':
 				config.skill = [];
+				mod.command.message('Skills reset');
 				break;	
 			case 'save':				
 				saveConfig(settingsPath, config);
@@ -79,7 +89,12 @@ module.exports = function SkillResets(mod) {
 			case 'reload':
 				getConfigData(settingsPath);
 				mod.command.message('Configuration rechargé');
-				break;			
+				break;
+			case 'test':
+				showMessage(`<img src="img://skill__0__${mod.game.me.templateId}__${arg}" ${arg2} ${arg3} ${arg4} ${arg5} ${arg6} /><img src="img://skill__0__${mod.game.me.templateId}__${arg}" ${arg7} ${arg8} ${arg9} ${arg10} ${arg11}  /><font size="${config.fontsize}" color="${config.resetfontcolor}">&nbsp;Reset</font>`);
+				console.log(`<img src="img://skill__0__${mod.game.me.templateId}__${arg}" ${arg2} ${arg3} ${arg4} ${arg5} /><img src="img://skill__0__${mod.game.me.templateId}__${arg}" ${arg7} ${arg8} ${arg9} ${arg10} ${arg11}  /><font size="${config.fontsize}" color="${config.resetfontcolor}">&nbsp;Reset</font>`);
+				break;
+			
 		}
 	});
 	
@@ -105,6 +120,15 @@ module.exports = function SkillResets(mod) {
 		}
 		if (config.flashingnotification === undefined) {
 			config.flashingnotification = false;
+		}
+		if (config.fontsize === undefined) {
+			config.fontsize = 24;
+		}
+		if (config.vspace === undefined) {
+			config.vspace = -20;
+		}
+		if (config.padding === undefined) {
+			config.padding = 0;
 		}
 		if (config.skill === undefined) {
 			config.skill = [];
