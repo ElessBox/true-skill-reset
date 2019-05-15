@@ -3,22 +3,22 @@ True skill reset for calli proxy, notify when skill cooldown is terminated or wh
 
 In your proxy channel : 
 
-#skreset add
+# skreset add
 Add the last skill you cast (having cooldown) to the skill's id list you want be notified.
 
-#skreset remove 
+# skreset remove 
 remove last skill you cast (having cooldown) to the skill's id list
 
-#skreset reset
+# skreset reset
 empty the list
 
-#skreset remove
+# skreset remove
 Add the last skill you send (having cooldown)
 
-#skreset reset
+# skreset reset
 
-#skreset save
+# skreset save
 Save your config in the module folder (name-severid.json)
 
-#skreset reload
+# skreset reload
 Reload json config file
