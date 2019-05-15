@@ -1,7 +1,7 @@
 {
 	"files": {
-		"index.js": "e9defd4295aea52b8ebf150bf60ae4f68cd60a1bffaa50443f73f5170a710da0",
-		"module.json": "01948b4baa57b0741e12959fc4c3fbb755b2e3de56d0b8a3a07c44f1302be951"
+		"index.js": "e11755a577033c8a91abf3f42f1a24c84a197d44bc27e59ee79456576365736c",
+		"module.json": "1f9352af606e34d816e4ae5ad5d72166c45b59c7a58fc4a0032913ddfe8f5d05"
 	},
 	"defs": {
 		"S_START_COOLTIME_SKILL": 3,
