@@ -1,0 +1,11 @@
+{
+    "files": {
+        "index.js": "ecc11f94b4dce0783d10882582e553c822ac87c0386da6fe42a8ced5abedadc1",
+        "module.json": "a6d724d0b47ce85f572a28783808a2fbeaabdbbae08e7768a17f36cf70575c6a"
+    },
+    "defs": {
+        "S_START_COOLTIME_SKILL": 3,
+        "S_CREST_MESSAGE": 2,
+        "S_DUNGEON_EVENT_MESSAGE": 2
+    }
+}

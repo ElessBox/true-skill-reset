@@ -1,0 +1,13 @@
+{
+    "name": "true-skill-reset",
+    "author": "ElessBox",
+    "description": "notify when skill cooldown is terminated or when skill is reset",
+    "version": "1.0",
+	"supportUrl": "https://github.com/ElessBox/true-skill-reset.git"	
+    "servers": ["https://raw.githubusercontent.com/ElessBox/true-skill-reset/master/"],
+	"packets": {
+        "S_START_COOLTIME_SKILL": 3,
+        "S_CREST_MESSAGE": 2,
+        "S_DUNGEON_EVENT_MESSAGE": 2        
+    }
+}
