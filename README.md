@@ -15,8 +15,6 @@ empty the list
 ## skreset remove
 Add the last skill you send (having cooldown)
 
-## skreset reset
-
 ## skreset save
 Save your config in the module folder (name-severid.json)
 
