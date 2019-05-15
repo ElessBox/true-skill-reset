@@ -13,7 +13,7 @@ module.exports = function SkillResets(mod) {
 			console.log(e);
 		}
 	});	
-	let skillTimer = [];
+	//let skillTimer = [];
 	
 	mod.hook('S_START_COOLTIME_SKILL', 3, ({skill, cooldown}) => {
 		//console.log(`SkillReset(${mod.game.me.name})|${skill.id}|${cooldown}`);
