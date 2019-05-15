@@ -2,7 +2,7 @@
     "name": "true-skill-reset",
     "author": "ElessBox",
     "description": "Notify when skill cooldown is terminated or when skill is reset",
-    "version": "1.0",
+    "version": "1.01",
 	"supportUrl": "https://github.com/ElessBox/true-skill-reset.git",
     "servers": ["https://raw.githubusercontent.com/ElessBox/true-skill-reset/master/"]	
 }
