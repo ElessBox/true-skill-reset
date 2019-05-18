@@ -12,9 +12,6 @@ remove last skill you cast (having cooldown) to the skill's id list
 ## skreset reset
 empty the list
 
-## skreset remove
-Add the last skill you send (having cooldown)
-
 ## skreset save
 Save your config in the module folder (name-severid.json)
 
